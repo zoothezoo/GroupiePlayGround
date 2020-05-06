@@ -1,0 +1,2 @@
+rootProject.name='GroupiePlayGround'
+include ':app'
