@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.groupieplayground.view.MainFragment"
-        android:label="fragment_simple_groupie"
-        tools:layout="@layout/fragment_simple_groupie" >
+        android:label="GroupiePlayGround"
+        tools:layout="@layout/fragment_simple_groupie">
         <action
             android:id="@+id/action_mainFragment_to_simpleGroupieFragment"
             app:destination="@id/simpleGroupieFragment" />
@@ -17,5 +17,5 @@
     <fragment
         android:id="@+id/simpleGroupieFragment"
         android:name="com.example.groupieplayground.view.SimpleGroupieFragment"
-        android:label="SimpleGroupieFragment" />
+        android:label="SimpleGroupie" />
 </navigation>
