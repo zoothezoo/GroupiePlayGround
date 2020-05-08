@@ -14,13 +14,4 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/layout_fruit_item" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
