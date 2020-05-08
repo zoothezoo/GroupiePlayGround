@@ -33,7 +33,7 @@ class DataBuilder {
 
     fun makePersonList(): List<Person> {
         val list = mutableListOf<Person>()
-        for (i in 0..10) {
+        for (i in 0..9) {
             list.add(
                 Person(
                     name = names[i],
