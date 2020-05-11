@@ -19,8 +19,11 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        king_gnu.setOnClickListener {
+        button_simple.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_simpleGroupieFragment)
+        }
+        button_expandable.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_expandableGroupieFragment)
         }
     }
 

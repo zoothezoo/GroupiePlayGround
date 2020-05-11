@@ -13,9 +13,17 @@
         <action
             android:id="@+id/action_mainFragment_to_simpleGroupieFragment"
             app:destination="@id/simpleGroupieFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_expandableGroupieFragment"
+            app:destination="@id/expandableGroupieFragment" />
     </fragment>
     <fragment
         android:id="@+id/simpleGroupieFragment"
         android:name="com.example.groupieplayground.view.SimpleGroupieFragment"
         android:label="SimpleGroupie" />
+    <fragment
+        android:id="@+id/expandableGroupieFragment"
+        android:name="com.example.groupieplayground.view.ExpandableGroupieFragment"
+        android:label="fragment_expandable_groupie"
+        tools:layout="@layout/fragment_expandable_groupie" />
 </navigation>
