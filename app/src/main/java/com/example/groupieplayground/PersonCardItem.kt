@@ -14,4 +14,6 @@ class PersonCardItem(
         viewBinding.age = person.age
         viewBinding.hobby = person.hobby
     }
+
+    override fun getSpanSize(spanCount: Int, position: Int) = spanCount / 2
 }
