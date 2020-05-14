@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_expandableGroupieFragment"
             app:destination="@id/expandableGroupieFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_carouselFragment"
+            app:destination="@id/carouselFragment" />
     </fragment>
     <fragment
         android:id="@+id/simpleGroupieFragment"
@@ -24,6 +27,11 @@
     <fragment
         android:id="@+id/expandableGroupieFragment"
         android:name="com.example.groupieplayground.view.ExpandableGroupieFragment"
-        android:label="fragment_expandable_groupie"
+        android:label="ExpandableGroupie"
         tools:layout="@layout/fragment_expandable_groupie" />
+    <fragment
+        android:id="@+id/carouselFragment"
+        android:name="com.example.groupieplayground.view.CarouselFragment"
+        android:label="CarouselGroupie"
+        tools:layout="@layout/fragment_carousel" />
 </navigation>

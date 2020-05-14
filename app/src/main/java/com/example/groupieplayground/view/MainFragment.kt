@@ -25,6 +25,10 @@ class MainFragment : Fragment() {
         button_expandable.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_expandableGroupieFragment)
         }
+        button_carousel.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_carouselFragment)
+
+        }
     }
 
 }
