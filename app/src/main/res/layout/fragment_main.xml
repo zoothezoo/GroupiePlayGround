@@ -23,5 +23,14 @@
         android:text="Expandable"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_simple" />
+
+    <Button
+        android:id="@+id/button_carousel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Carousel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_expandable" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
