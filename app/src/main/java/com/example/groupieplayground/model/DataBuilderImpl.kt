@@ -7,6 +7,7 @@ class DataBuilderImpl : DataBuilder {
         for (i in 0..9) {
             list.add(
                 Person(
+                    id = i,
                     name = names[i],
                     age = ages[i],
                     hobby = hobbies[i]
@@ -21,6 +22,7 @@ class DataBuilderImpl : DataBuilder {
         for (i in 0..2) {
             list.add(
                 Person(
+                    id = i,
                     name = names[i],
                     age = ages[i],
                     hobby = hobbies[i]
@@ -35,6 +37,7 @@ class DataBuilderImpl : DataBuilder {
         for (i in 3..9) {
             list.add(
                 Person(
+                    id = i,
                     name = names[i],
                     age = ages[i],
                     hobby = hobbies[i]

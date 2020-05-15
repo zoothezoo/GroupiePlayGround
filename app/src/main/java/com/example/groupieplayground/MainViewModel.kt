@@ -1,11 +1,17 @@
 package com.example.groupieplayground
 
+import android.content.Context
+import android.text.TextUtils
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.groupieplayground.model.DataBuilder
 import com.example.groupieplayground.model.DataBuilderImpl
 import com.example.groupieplayground.model.Person
+import com.xwray.groupie.OnItemClickListener
+import com.xwray.groupie.OnItemLongClickListener
 
 class MainViewModel : ViewModel() {
 
@@ -24,15 +30,44 @@ class MainViewModel : ViewModel() {
         getFavoritePeople()
     }
 
-    fun getAllPeople() {
+    private fun getAllPeople() {
         _person.value = dataBuilder.buildAllPeople()
     }
 
-    fun getFavoritePeople() {
+    private fun getFavoritePeople() {
         _favPerson.value = dataBuilder.buildFavoritePeople()
     }
 
-    fun getNormalPeople() {
+    private fun getNormalPeople() {
         _norPerson.value = dataBuilder.buildNormalPeople()
     }
+
+    fun delete(position: Int) {
+        if (position != -1) {
+            val a = _person.value?.toMutableList()
+            a?.removeAt(position)
+            _person.value = a?.toList()
+        }
+    }
+
+    fun onItemClickListener(context: Context) = OnItemClickListener { item, view ->
+        Log.d("debugger", "touched!!")
+        if (item is PersonCardItem && !TextUtils.isEmpty(item.person.name)) {
+            Toast.makeText(context, item.person.name, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    @ExperimentalStdlibApi
+    fun onItemLongClickListener(context: Context) =
+        OnItemLongClickListener { item, view ->
+            if (item is PersonCardItem && !item.person.name.isNullOrBlank()) {
+                Toast.makeText(
+                    context,
+                    "Long clicked:Delete this " + item.person.name,
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@OnItemLongClickListener true
+            }
+            false
+        }
 }
