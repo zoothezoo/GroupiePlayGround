@@ -2,6 +2,7 @@ package com.example.groupieplayground
 
 import android.content.Context
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -29,29 +30,44 @@ class MainViewModel : ViewModel() {
         getFavoritePeople()
     }
 
-    fun getAllPeople() {
+    private fun getAllPeople() {
         _person.value = dataBuilder.buildAllPeople()
     }
 
-    fun getFavoritePeople() {
+    private fun getFavoritePeople() {
         _favPerson.value = dataBuilder.buildFavoritePeople()
     }
 
-    fun getNormalPeople() {
+    private fun getNormalPeople() {
         _norPerson.value = dataBuilder.buildNormalPeople()
     }
 
-    fun onItemClickListener(context: Context) = OnItemClickListener { item, _ ->
+    fun delete(position: Int) {
+        if (position != -1) {
+            val a = _person.value?.toMutableList()
+            a?.removeAt(position)
+            _person.value = a?.toList()
+        }
+    }
+
+    fun onItemClickListener(context: Context) = OnItemClickListener { item, view ->
+        Log.d("debugger", "touched!!")
         if (item is PersonCardItem && !TextUtils.isEmpty(item.person.name)) {
             Toast.makeText(context, item.person.name, Toast.LENGTH_SHORT).show()
         }
     }
 
-    fun onItemLongClickListener(context: Context) = OnItemLongClickListener { item, _ ->
-        if (item is PersonCardItem && !item.person.name.isNullOrBlank()) {
-            Toast.makeText(context, "Long clicked: " + item.person.name, Toast.LENGTH_SHORT).show()
-            return@OnItemLongClickListener true
+    @ExperimentalStdlibApi
+    fun onItemLongClickListener(context: Context) =
+        OnItemLongClickListener { item, view ->
+            if (item is PersonCardItem && !item.person.name.isNullOrBlank()) {
+                Toast.makeText(
+                    context,
+                    "Long clicked:Delete this " + item.person.name,
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@OnItemLongClickListener true
+            }
+            false
         }
-        false
-    }
 }
