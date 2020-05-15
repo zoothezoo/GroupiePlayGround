@@ -1,7 +1,6 @@
 package com.example.groupieplayground.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -13,6 +12,7 @@ import com.example.groupieplayground.R
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
+import com.xwray.groupie.groupiex.plusAssign
 import kotlinx.android.synthetic.main.fragment_simple_groupie.*
 
 class SimpleGroupieFragment : Fragment(R.layout.fragment_simple_groupie) {
@@ -33,9 +33,11 @@ class SimpleGroupieFragment : Fragment(R.layout.fragment_simple_groupie) {
         list?.forEach {
             groupList.add(PersonCardItem(it))
         }
-        adapter.apply {
-            update(groupList)
-        }
-    }
 
+        adapter.apply {
+            setOnItemClickListener(viewModel.onItemClickListener(requireContext()))
+            setOnItemLongClickListener(viewModel.onItemLongClickListener(requireContext()))
+        }
+        adapter += groupList
+    }
 }
