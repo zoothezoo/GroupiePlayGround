@@ -5,7 +5,7 @@ import com.example.groupieplayground.model.Person
 import com.xwray.groupie.databinding.BindableItem
 
 class PersonCardItem(
-    private val person: Person
+    val person: Person
 ) : BindableItem<LayoutPersonCardItemBinding>() {
     override fun getLayout(): Int = R.layout.layout_person_card_item
 
