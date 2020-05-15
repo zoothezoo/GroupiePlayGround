@@ -43,10 +43,13 @@ class MainViewModel : ViewModel() {
     }
 
     fun delete(position: Int) {
-        if (position != -1) {
-            val a = _person.value?.toMutableList()
-            a?.removeAt(position)
-            _person.value = a?.toList()
+        val personlist = _person.value
+        personlist?.let {
+            if (position != -1 && position < personlist.size) {
+                val a = _person.value?.toMutableList()
+                a?.removeAt(position)
+                _person.value = a?.toList()
+            }
         }
     }
 
