@@ -47,7 +47,7 @@ class CarouselFragment : Fragment() {
         val people = viewModel.person
         val itemList = buildList<Group> {
             people.value?.forEach {
-                this.add(PersonCardItem(it))
+                this.add(PersonCardItem(it, viewModel = viewModel))
             }
         }
         carouselAdapter.addAll(itemList)

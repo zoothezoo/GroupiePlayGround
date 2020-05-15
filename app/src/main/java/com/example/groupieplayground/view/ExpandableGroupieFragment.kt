@@ -34,13 +34,13 @@ class ExpandableGroupieFragment : Fragment(R.layout.fragment_expandable_groupie)
 
         val favList = buildList<PersonCardItem> {
             favPeople?.forEach {
-                this.add(PersonCardItem(it))
+                this.add(PersonCardItem(it, viewModel = viewModel))
             }
         }
 
         val norList = buildList<PersonCardItem> {
             norPeople?.forEach {
-                this.add(PersonCardItem(it))
+                this.add(PersonCardItem(it, viewModel = viewModel))
             }
         }
 
