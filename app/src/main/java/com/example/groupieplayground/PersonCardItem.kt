@@ -14,7 +14,9 @@ class PersonCardItem(
         viewBinding.name = person.name
         viewBinding.age = person.age
         viewBinding.hobby = person.hobby
-        viewBinding.clear.setOnClickListener{ viewModel.delete(position) }
+        viewBinding.clear.setOnClickListener {
+            viewModel.deleteInPerson(person.id)
+        }
     }
 
     override fun getSpanSize(spanCount: Int, position: Int) = spanCount / 2

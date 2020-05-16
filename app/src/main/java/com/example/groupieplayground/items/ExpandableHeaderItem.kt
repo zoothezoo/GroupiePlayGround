@@ -8,6 +8,7 @@ import com.xwray.groupie.ExpandableItem
 import com.xwray.groupie.databinding.BindableItem
 
 class ExpandableHeaderItem(
+    private val id: Int,
     private val title: String,
     private val lifecycleOwner: LifecycleOwner
 ) : BindableItem<LayoutExpandableHeaderBinding>(), ExpandableItem {
@@ -34,4 +35,6 @@ class ExpandableHeaderItem(
         true -> R.drawable.ic_expand_less_black_24dp
         false -> R.drawable.ic_expand_more_black_24dp
     }
+
+    override fun getId(): Long = id.toLong()
 }

@@ -42,21 +42,23 @@ class MainViewModel : ViewModel() {
         _norPerson.value = dataBuilder.buildNormalPeople()
     }
 
-    fun delete(position: Int) {
-        val personlist = _person.value
-        personlist?.let {
-            if (position != -1 && position < personlist.size) {
-                val a = _person.value?.toMutableList()
-                a?.removeAt(position)
-                _person.value = a?.toList()
-            }
-        }
+    fun deleteInPerson(id: Int) {
+        val list = _person.value?.filter { it.id != id }
+        _person.value = list
     }
 
     fun onItemClickListener(context: Context) = OnItemClickListener { item, view ->
-        Log.d("debugger", "touched!!")
         if (item is PersonCardItem && !TextUtils.isEmpty(item.person.name)) {
-            Toast.makeText(context, item.person.name, Toast.LENGTH_SHORT).show()
+            val id = item.person.id
+            val list = _person.value?.map {
+                if (it.id == id) {
+                    it.apply { fav = fav.not() }
+                } else {
+                    it
+                }
+            }
+            _person.value = list
+            Toast.makeText(context, "${item.person.fav}", Toast.LENGTH_SHORT).show()
         }
     }
 
