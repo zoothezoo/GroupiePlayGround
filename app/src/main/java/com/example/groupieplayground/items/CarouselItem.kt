@@ -19,4 +19,7 @@ class CarouselItem(
             adapter = carouselAdapter
         }
     }
+
+    override fun getId(): Long = id
+
 }

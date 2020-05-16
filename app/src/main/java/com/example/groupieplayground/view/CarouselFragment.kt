@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.groupieplayground.MainViewModel
 import com.example.groupieplayground.PersonCardItem
@@ -37,20 +38,25 @@ class CarouselFragment : Fragment() {
         recycler_carousel.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = groupAdapter
-
         }
     }
 
     @ExperimentalStdlibApi
     private fun makeCarouselItem(): CarouselItem {
         val carouselAdapter = GroupAdapter<GroupieViewHolder>()
-        val people = viewModel.person
-        val itemList = buildList<Group> {
-            people.value?.forEach {
-                this.add(PersonCardItem(it, viewModel = viewModel))
-            }
+        carouselAdapter.apply {
+            setOnItemClickListener(viewModel.onItemClickListener(requireContext()))
+            setOnItemLongClickListener(viewModel.onItemLongClickListener(requireContext()))
         }
-        carouselAdapter.addAll(itemList)
+        viewModel.person.observe(viewLifecycleOwner, Observer {
+            val people = viewModel.person
+            val itemList = buildList<Group> {
+                people.value?.forEach {
+                    this.add(PersonCardItem(it, viewModel = viewModel))
+                }
+            }
+            carouselAdapter.update(itemList)
+        })
         return CarouselItem(carouselAdapter)
     }
 }
