@@ -19,27 +19,13 @@ class MainViewModel : ViewModel() {
 
     private val _person = MutableLiveData<List<Person>>()
     val person: LiveData<List<Person>> get() = _person
-    private val _favPerson = MutableLiveData<List<Person>>()
-    val favPerson: LiveData<List<Person>> get() = _favPerson
-    private val _norPerson = MutableLiveData<List<Person>>()
-    val norPerson: LiveData<List<Person>> get() = _norPerson
 
     init {
         getAllPeople()
-        getNormalPeople()
-        getFavoritePeople()
     }
 
     private fun getAllPeople() {
         _person.value = dataBuilder.buildAllPeople()
-    }
-
-    private fun getFavoritePeople() {
-        _favPerson.value = dataBuilder.buildFavoritePeople()
-    }
-
-    private fun getNormalPeople() {
-        _norPerson.value = dataBuilder.buildNormalPeople()
     }
 
     fun deleteInPerson(id: Int) {
