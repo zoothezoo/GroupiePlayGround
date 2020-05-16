@@ -10,7 +10,8 @@ class DataBuilderImpl : DataBuilder {
                     id = i,
                     name = names[i],
                     age = ages[i],
-                    hobby = hobbies[i]
+                    hobby = hobbies[i],
+                    fav = favs[i]
                 )
             )
         }
@@ -77,6 +78,19 @@ class DataBuilderImpl : DataBuilder {
             "sleeping",
             "youtube",
             "talking"
+        )
+
+        val favs = listOf<Boolean>(
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            false,
+            false,
+            false,
+            true
         )
     }
 

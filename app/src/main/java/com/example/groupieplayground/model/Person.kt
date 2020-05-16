@@ -4,5 +4,6 @@ data class Person(
     val id: Int,
     val name: String,
     val age: Int,
-    val hobby: String
+    val hobby: String,
+    var fav: Boolean = true
 )
