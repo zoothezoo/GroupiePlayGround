@@ -4,7 +4,7 @@ import com.example.groupieplayground.databinding.LayoutPersonCardItemBinding
 import com.example.groupieplayground.model.Person
 import com.xwray.groupie.databinding.BindableItem
 
-class PersonCardItem(
+open class PersonCardItem(
     val person: Person,
     val viewModel: MainViewModel
 ) : BindableItem<LayoutPersonCardItemBinding>() {
