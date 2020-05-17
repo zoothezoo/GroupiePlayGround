@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_mainFragment_to_carouselFragment"
             app:destination="@id/carouselFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_draggableFragment"
+            app:destination="@id/draggableFragment" />
     </fragment>
     <fragment
         android:id="@+id/simpleGroupieFragment"
@@ -34,4 +37,10 @@
         android:name="com.example.groupieplayground.view.CarouselFragment"
         android:label="CarouselGroupie"
         tools:layout="@layout/fragment_carousel" />
+    <fragment
+        android:id="@+id/draggableFragment"
+        android:name="com.example.groupieplayground.view.DraggableFragment"
+        android:label="DraggableGroupie"
+        tools:layout="@layout/fragment_draggable"
+        />
 </navigation>
