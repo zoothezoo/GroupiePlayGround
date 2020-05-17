@@ -27,7 +27,9 @@ class MainFragment : Fragment() {
         }
         button_carousel.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_carouselFragment)
-
+        }
+        button_draggable.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_draggableFragment)
         }
     }
 
